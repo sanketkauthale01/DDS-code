@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+#define size 8
+int queue[size];
+int rear=-1,front=-1;
+
+
+int isfull(){
+    if(rear==size-1){
+        return 1;
+    }
+    return 0;
+}
+
+int isempty(){
+    if(rear==front){
+        return 1;
+    }
+    return 0;
+}
+
+
+
+void equeue(int val){
+    
+    if(isfull()){
+    cout<<"stack is overflow"<<endl;
+    }
+    else {
+         rear++;
+        queue[rear]=val;
+    }
+}
+
+
+int dqueue(){
+    int a=-1;
+    if(isempty()){
+        cout<<"stack is empty"<<endl;
+        return -1;
+        
+    }
+    else {
+        front++;
+        a=queue[front];
+        return a;
+        
+    }
+}
+
+
+
+
+int main() {
+    equeue(10);
+    equeue(20);
+    equeue(30);
+    equeue(40);
+    equeue(50);
+    equeue(60);
+    equeue(70);
+    equeue(80);
+    equeue(90);
+    dqueue();
+    dqueue();
+    dqueue();
+
+    return 0;
+}
